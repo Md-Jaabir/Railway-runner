@@ -1,0 +1,228 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  overflow: hidden;
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.game{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  border: 1px solid darkblue;
+  background-image: url(./assets/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.track{
+  width: 33%;
+  position: relative;
+}
+
+.line{
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.line-2{
+  top: -100vh;
+}
+
+.runner{
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  top: 73%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition:.15s linear;
+  
+}
+
+.obstacle{
+  position: absolute;
+  transform: translateX(-53.5%);
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+}
+
+.obstacle.train{
+  width: 75px;
+  height: 400px;
+  top: -400px;
+  background-image: url(./assets/train.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.obstacle.slidable{
+  width: 85px;
+  height: 85px;
+  background-image: url(./assets/slidable.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: -85px;
+  left: -2px;
+  z-index: 5;
+}
+
+.obstacle.jumpable{
+  width: 110px;
+  height: 110px;
+  top: -110px;
+  background-image: url(./assets/brick.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.jumpable.whole{
+  background-image: url(./assets/whole.png);
+}
+
+.jumpable.brick{
+  background-image: url(./assets/brick.png);
+  height: 70px;
+  width: 85px;
+  top: -85px;
+}
+
+.obstacle.track-0{
+  left: 17%;
+}
+
+.obstacle.track-1{
+  left: 50%;
+}
+
+.obstacle.track-2{
+  left: 83%;
+}
+
+.coin-chain{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: -272px;
+  left: 50%;
+  gap: 7px;
+  transform: translateX(-50%);
+}
+
+.coin-chain .coin{
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background-image: url(./assets/animations/coin/coin.png);
+  animation-name: coin-anim;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*animations*/
+/*1.running*/
+@keyframes running{
+  33%{
+    background-image: url(./assets/animations/running/one.png);
+    
+  }
+  100%{
+    background-image: url(./assets/animations/running/two.png);
+  }
+}
+
+.run{
+  animation-name: running;
+  animation-duration: .4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*2.jumping*/
+@keyframes jumping{
+  50%{
+    height: 100px;
+    width: 100px;
+  }
+  100%{
+    height: 92px;
+    width: 92px;
+  }
+}
+
+.jump{
+  animation-name: jumping;
+  animation-duration: .8s;
+  animation-delay: 0s;
+  background-image: url(./assets/animations/running/one.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*2.sliding*/
+@keyframes sliding{
+  50%{
+    height: 70px;
+    width: 70px;
+  }
+  100%{
+    height: 72px;
+    width: 72px;
+  }
+}
+
+.slide{
+  animation-name: sliding;
+  animation-duration: .8s;
+  animation-delay: 0s;
+  background-image: url(./assets/animations/running/one.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@keyframes coin-anim{
+  0%{
+    background-image: url(./assets/animations/coin/coin.png);
+  }
+  15%{
+    background-image: url(./assets/animations/coin/0.png);
+  }
+  30%{
+    background-image: url(./assets/animations/coin/1.png);
+  }
+  45%{
+    background-image: url(./assets/animations/coin/2.png);
+  }
+  60%{
+    background-image: url(./assets/animations/coin/3.png);
+  }
+  75%{
+    background-image: url(./assets/animations/coin/2.png);
+  }
+  90%{
+    background-image: url(./assets/animations/coin/3.png);
+  }
+  100%{
+    background-image: url(./assets/animations/coin/0.png);
+  }
+}
