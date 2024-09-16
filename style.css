@@ -23,6 +23,8 @@ body{
   background-image: url(./assets/background.png);
   background-size: cover;
   background-repeat: no-repeat;
+  max-width: 500px;
+  max-height: 700px;
 }
 
 .track{
@@ -50,6 +52,7 @@ body{
   left: 50%;
   transform: translateX(-50%);
   transition:.15s linear;
+  background-image: url(assets/animations/running/one.png);
   
 }
 
@@ -113,6 +116,23 @@ body{
   left: 83%;
 }
 
+.track .line-1{
+  animation-name: line-1;
+  animation-duration: 5s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.track .line-2{
+  animation-name: line-2;
+  animation-duration: 10s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  border: 1px solid red;
+}
+
 .coin-chain{
   display: none;
   flex-direction: column;
@@ -137,7 +157,66 @@ body{
   background-repeat: no-repeat;
 }
 
+.start-menu{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.start-menu img{
+  width: 95%;
+  position: absolute;
+  top: 35px;
+}
+
+.start-menu .tap-to-start{
+  width: 80%;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-name: blink;
+  animation-duration: .7s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
 /*animations*/
+@keyframes blink{
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes line-2{
+  0%{
+    top: -100%;
+  }
+  25%{
+    top: -100%;
+  }
+  50%{
+    top: 0;
+  }
+  100%{
+    top: 100%;
+  }
+}
+
+@keyframes line-1{
+  0%{
+    top: -100%;
+  }
+  100%{
+    top: 100%;
+  }
+
+}
+
 /*1.running*/
 @keyframes running{
   33%{
@@ -226,3 +305,4 @@ body{
     background-image: url(./assets/animations/coin/0.png);
   }
 }
+
